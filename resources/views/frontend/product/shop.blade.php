@@ -124,7 +124,7 @@
                                 <a href="#" class="attr">Xanh</a>
                                 <a href="#" class="attr">Đen</a>
                                 <a href="#" class="attr">Trắng</a>
-
+            
                             </p>
                         </div>
                     </div>
