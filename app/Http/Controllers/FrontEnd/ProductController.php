@@ -4,7 +4,7 @@ namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Product, Category};
+use App\Models\{Product, Category,Attribute,Values};
 
 class ProductController extends Controller
 {
@@ -12,17 +12,18 @@ class ProductController extends Controller
     {
         if ($r->category) {
             $data['product'] = Category::find($r->category)->product()->where('img', '<>', 'no-img.jpg')->paginate(12);
+        } else if ($r->start) {
+            $data['product'] = Product::whereBetween('price', [$r->start, $r->end])->paginate(12);
         }
-
-        else if($r->start){
-            $data['product'] = Product::whereBetween('price',[$r->start,$r->end])->paginate(12);
+        else if($r->value){
+            $data['product']=Values::find($r->value)->product()->where('img', '<>', 'no-img.jpg')->paginate(12);
         }
-        
-        else {
+         else {
             $data['product'] = Product::where('img', '<>', 'no-img.jpg')->paginate(12);
         }
 
         $data['category'] = Category::all();
+        $data['attrs']=Attribute::all();
 
         return view('frontend.product.shop', $data);
     }

@@ -116,31 +116,20 @@
                             <button type="submit" style="width: 100%;border: none;height: 40px;">Tìm kiếm</button>
                         </form>
                     </div>
+                    @foreach ($attrs as $attr)
                     <div class="side">
-                        <h2>Màu sắc</h2>
+                        <h2>{{$attr->name}}</h2>
                         <div class="size-wrap">
                             <p class="size-desc">
-                                <a href="#" class="attr">Đỏ</a>
-                                <a href="#" class="attr">Xanh</a>
-                                <a href="#" class="attr">Đen</a>
-                                <a href="#" class="attr">Trắng</a>
-            
+                                @foreach ($attr->values as $value)
+                            <a href="/product/shop?value={{$value->id}}" class="attr">{{$value->value}}</a>
+                                @endforeach
+                            
                             </p>
                         </div>
                     </div>
-                    <div class="side">
-                        <h2>Kích thước</h2>
-                        <div class="size-wrap">
-                            <p class="size-desc">
-                                <a href="#" class="attr">xs</a>
-                                <a href="#" class="attr">s</a>
-                                <a href="#" class="attr">m</a>
-                                <a href="#" class="attr">l</a>
-                                <a href="#" class="attr">xl</a>
-                                <a href="#" class="attr">xxl</a>
-                            </p>
-                        </div>
-                    </div>
+                    @endforeach
+                    
                 </div>
             </div>
         </div>
