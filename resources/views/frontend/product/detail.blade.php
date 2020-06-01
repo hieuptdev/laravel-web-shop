@@ -9,7 +9,7 @@
 					<div class="row">
 						<div class="col-md-5">
 							<div class="product-entry">
-								<div class="product-img" style="background-image: url(images/item-6.jpg);">
+								<div class="product-img" style="background-image: url(/backend/img/{{$product->img}});">
 
 								</div>
 
@@ -27,9 +27,11 @@
 									<div class="size-wrap">
 										<p class="size-desc">
 											size:
+											@foreach ($values as $value)
+												<a class="size">M</a>
+											@endforeach
 											
-											<a class="size">M</a>
-											<a class="size">L</a>
+											
 											
 										</p>
 									</div>
@@ -99,7 +101,7 @@
 						</ul>
 						<div class="tab-content">
 							<div id="description" class="tab-pane fade in active">
-								Đây là sản phẩm đẹp
+								{{$product->describe}}
 							</div>
 						</div>
 					</div>
