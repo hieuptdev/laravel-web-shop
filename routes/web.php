@@ -18,6 +18,7 @@ Route::group(['prefix' => 'product'], function () {
 
 Route::group(['prefix' => 'cart'], function () {
     Route::get('', 'FrontEnd\CartController@getCart');
+    Route::get('addcart','FrontEnd\CartController@getAddCart');
 });
 
 

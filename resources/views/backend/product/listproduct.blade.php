@@ -60,18 +60,19 @@
                                             <div class="row">
                                                 <div class="col-md-3"><img src="/backend/img/{{ $row->img }}"
                                                         alt="Áo đẹp" width="100px" class="thumbnail"></div>
-                                                <div class="col-md-9">
+                                                <div class="col-md-9" class="size-wrap">
                                                     <p><strong>Mã sản phẩm : {{ $row->product_code }}</strong></p>
                                                     <p>Tên sản phẩm : {{ $row->name }}</p>
                                                     <p>Danh mục:{{ $row->category->name }}</p>
-
+                                                    
                                                     @foreach (attr_values($row->values) as $key=>$value)
-                                                    <p>{{$key}}:
+                                                    <p class="size-desc">{{$key}}:
                                                         @foreach ($value as $item)
-                                                        | {{$item}} |
+                                                          {{$item}}
                                                         @endforeach
                                                     </p>
                                                     @endforeach
+                                                
                                                     {{-- <div class="group-color">Màu tuỳ chọn:
 															<div class="product-color" style="background-color: blueviolet;"></div>
 															<div class="product-color" style="background-color: brown;"></div>

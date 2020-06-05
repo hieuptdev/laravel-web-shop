@@ -30,7 +30,7 @@ class ProductController extends Controller
     function getDetail($idPrd)
     {
         $data['product'] = Product::find($idPrd);
-        $data['values'] = Values::all();
+       
         return view('frontend.product.detail', $data);
     }
 
