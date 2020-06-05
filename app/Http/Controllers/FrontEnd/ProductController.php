@@ -8,8 +8,10 @@ use App\Models\{Product, Category, Attribute, Values};
 
 class ProductController extends Controller
 {
+
     function getShop(request $r)
     {
+
         if ($r->category) {
 
             $data['product'] = Category::find($r->category)->product()->where('img', '<>', 'no-img.jpg')->paginate(12);
@@ -30,7 +32,7 @@ class ProductController extends Controller
     function getDetail($idPrd)
     {
         $data['product'] = Product::find($idPrd);
-       
+        $data['product_new']=Product::where('img','<>','no-img.jpg')->orderby('created_at','DESC')->take(4)->get();
         return view('frontend.product.detail', $data);
     }
 

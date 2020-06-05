@@ -16,7 +16,7 @@
                             </div>
                         </div>
                         <div class="col-md-7">
-                            <form action="/cart/addcart" method="get">
+                            <form action="/cart/add" method="get">
 
                                 <div class="desc">
                                     <h3>{{ $product->name }}</h3>
@@ -112,61 +112,29 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($product_new as $item)
+                
+            
             <div class="col-md-3 text-center">
                 <div class="product-entry">
-                    <div class="product-img" style="background-image: url(images/item-7.jpg);">
+                    <div class="product-img" style="background-image: url(/backend/img/{{$item->img}});">
                         <p class="tag"><span class="new">New</span></p>
                         <div class="cart">
                             <p>
                                 <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span>
-                                <span><a href="product/detail/3"><i class="icon-eye"></i></a></span>
+                            <span><a href="/product/detail/{{$item->id}}"><i class="icon-eye"></i></a></span>
 
 
                             </p>
                         </div>
                     </div>
                     <div class="desc">
-                        <h3><a href="shop.html">Áo nữ vàng</a></h3>
-                        <p class="price"><span>150,000 VNĐ</span></p>
+                        <h3><a href="/product/detail/{{$item->id}}">{{$item->name}}</a></h3>
+                        <p class="price"><span>{{ number_format($item->price,0,'','.') }} VND</span></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 text-center">
-                <div class="product-entry">
-                    <div class="product-img" style="background-image: url(images/item-8.jpg);">
-                        <p class="tag"><span class="new">New</span></p>
-                        <div class="cart">
-                            <p>
-                                <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span>
-                                <span><a href="product/detail/2"><i class="icon-eye"></i></a></span>
-
-
-                            </p>
-                        </div>
-                    </div>
-                    <div class="desc">
-                        <h3><a href="shop.html">Áo khoác nữ đẹp</a></h3>
-                        <p class="price"><span>50,000 VNĐ</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 text-center">
-                <div class="product-entry">
-                    <div class="product-img" style="background-image: url(images/item-6.jpg);">
-                        <p class="tag"><span class="new">New</span></p>
-                        <div class="cart">
-                            <p>
-                                <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span>
-                                <span><a href="product/detail/1"><i class="icon-eye"></i></a></span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="desc">
-                        <h3><a href="shop.html">Áo khoác nam đẹp</a></h3>
-                        <p class="price"><span>150,000 VNĐ</span></p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

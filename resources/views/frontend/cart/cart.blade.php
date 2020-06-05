@@ -76,7 +76,7 @@
                     </div>
                     <div class="one-eight text-center">
                         <div class="display-tc">
-                            <a href="#" class="closed"></a>
+                        <a onclick="return del('{{$product->name}}')" href="/cart/del/{{$product->rowId}}" class="closed"></a>
                         </div>
                     </div>
                 </div>
@@ -110,6 +110,10 @@
     </div>
 </div>
 
-
+<script>
+    function del(name) {
+        return confirm('Bạn muốn xoá : ' +name+ '?');
+    }
+</script>
 
 @stop

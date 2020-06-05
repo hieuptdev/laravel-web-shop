@@ -14,10 +14,11 @@ class CartController extends Controller
 
         $data['cart'] = Cart::content();
         $data['total'] = Cart::total(0, '', ',');
+       
         return view('frontend.cart.cart', $data);
     }
 
-    function getAddCart(request $r)
+    public function getAddCart(request $r)
     {
         $product = Product::find($r->id_product);
         Cart::add([
@@ -28,6 +29,15 @@ class CartController extends Controller
             'weight' => 0,
             'options' => ['img' => $product->img, 'attr' => $r->attr]
         ]);
+        return redirect('/cart');
+    }
+
+    function getUpdateCart()
+    { }
+
+    function delCart($id)
+    {
+        Cart::remove($id);
         return redirect('/cart');
     }
 }
