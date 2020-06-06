@@ -112,6 +112,7 @@
 
         });
     </script>
+    @yield('script_cart')
 </body>
 
 </html>

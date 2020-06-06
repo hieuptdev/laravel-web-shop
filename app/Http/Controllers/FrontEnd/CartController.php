@@ -14,7 +14,7 @@ class CartController extends Controller
 
         $data['cart'] = Cart::content();
         $data['total'] = Cart::total(0, '', ',');
-       
+
         return view('frontend.cart.cart', $data);
     }
 
@@ -32,8 +32,10 @@ class CartController extends Controller
         return redirect('/cart');
     }
 
-    function getUpdateCart()
-    { }
+    function getUpdateCart($rowId, $qty)
+    {
+        Cart::update($rowId,  $qty);
+    }
 
     function delCart($id)
     {

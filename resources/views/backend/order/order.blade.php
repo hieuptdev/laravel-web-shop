@@ -36,17 +36,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($customer as $item)
+                                        
+                                    
                                     <tr>
-                                        <td>1</td>
-                                        <td>Nguyễn Thế Phúc</td>
-                                        <td>0356653300</td>
-                                        <td>Thường tín</td>
+                                    <td>{{$item->id}}</td>
+                                        <td>{{$item->full_name}}</td>
+                                        <td>{{$item->phone}}</td>
+                                        <td>{{$item->address}}</td>
                                         <td>
                                             <a href="orderinfo.html" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i>Xử lý</a>
 
                                         </td>
                                     </tr>
-
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

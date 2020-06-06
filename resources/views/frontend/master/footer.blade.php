@@ -49,7 +49,7 @@
                     <li>Số nhà B8A ngõ 18 đường Võ Văn Dũng - Hoàng Cầu - Đống Đa - Hà Nội</li>
                     <li><a href="tel://1234567920">0988 550 553</a></li>
                     <li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-                    <li><a href="#">http://vietpro.edu.vn</a></li>
+                    
                 </ul>
             </div>
         </div>

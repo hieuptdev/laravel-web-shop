@@ -13,14 +13,16 @@ Route::group(['prefix' => 'product'], function () {
     Route::get('shop', 'FrontEnd\ProductController@getShop');
     Route::get('detail/{idPrd}', 'FrontEnd\ProductController@getDetail');
     Route::get('checkout', 'FrontEnd\ProductController@getCheckOut');
-    Route::get('complete', 'FrontEnd\ProductController@getComplete');
+    Route::post('checkout','FrontEnd\ProductController@postCheckOut');
+    Route::get('complete/{cusId}', 'FrontEnd\ProductController@getComplete');
 });
 
 Route::group(['prefix' => 'cart'], function () {
     Route::get('', 'FrontEnd\CartController@getCart');
     Route::get('add', 'FrontEnd\CartController@getAddCart');
-    Route::get('update', 'FrontEnd\CartController@getUpdateCart');
+    Route::get('update/{rowId}/{qty}', 'FrontEnd\CartController@getUpdateCart');
     Route::get('del/{id}', 'FrontEnd\CartController@delCart');
+    
 });
 
 

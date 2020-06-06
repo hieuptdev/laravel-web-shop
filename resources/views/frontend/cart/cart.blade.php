@@ -51,10 +51,10 @@
                         <div class="detail-buy">
                             <h4>{{$product->name}}</h4>
                             <div class="row">
-								@foreach ($product->options->attr as $key=>$value)
-								<div class="col-md-3"><strong>{{$key}}:{{$value}}</strong></div>
-								@endforeach
-								
+                                @foreach ($product->options->attr as $key=>$value)
+                                <div class="col-md-3"><strong>{{$key}}:{{$value}}</strong></div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
@@ -65,8 +65,8 @@
                     </div>
                     <div class="one-eight text-center">
                         <div class="display-tc">
-                            <input type="number" id="quantity" name="quantity"
-                                class="form-control input-number text-center" value="{{$product->qty}}">
+                            <input onchange="update_qty('{{$product->rowId}}',this.value)" type="number" id="quantity"
+                                name="quantity" class="form-control input-number text-center" value="{{$product->qty}}">
                         </div>
                     </div>
                     <div class="one-eight text-center">
@@ -76,7 +76,8 @@
                     </div>
                     <div class="one-eight text-center">
                         <div class="display-tc">
-                        <a onclick="return del('{{$product->name}}')" href="/cart/del/{{$product->rowId}}" class="closed"></a>
+                            <a onclick="return del('{{$product->name}}')" href="/cart/del/{{$product->rowId}}"
+                                class="closed"></a>
                         </div>
                     </div>
                 </div>
@@ -98,7 +99,7 @@
                                 </div>
                                 <div class="grand-total">
                                     <p><span><strong>Tổng cộng:</strong></span> <span>{{$total}} VNĐ</span></p>
-                                    <a href="checkout.html" class="btn btn-primary">Thanh toán <i
+                                    <a href="/product/checkout" class="btn btn-primary">Thanh toán <i
                                             class="icon-arrow-right-circle"></i></a>
                                 </div>
                             </div>
@@ -110,10 +111,21 @@
     </div>
 </div>
 
+
+
+@section('script_cart')
 <script>
     function del(name) {
-        return confirm('Bạn muốn xoá : ' +name+ '?');
+        return confirm('Bạn muốn xoá : ' + name + '?');
     }
+
+    function update_qty(rowId, qty) {
+        $.get('/cart/update/'+rowId+'/'+qty,function () {
+            window.location.reload();
+        });
+    }
+
 </script>
+@endsection
 
 @stop

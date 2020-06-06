@@ -22,32 +22,40 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-7">
-                <form method="post" class="colorlib-form">
+            <form method="post" class="colorlib-form">
+                @csrf
+                <div class="col-md-7">
+
                     <h2>Chi tiết thanh toán</h2>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fname">Họ & Tên</label>
-                                <input type="text" id="fname" class="form-control" placeholder="First Name">
+                                <input name="name" type="text" id="fname" class="form-control" placeholder="First Name">
+                                {{ showError($errors,'name') }}
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="fname">Địa chỉ</label>
-                                <input type="text" id="address" class="form-control" placeholder="Nhập địa chỉ của bạn">
+                                <input name="address" type="text" id="address" class="form-control"
+                                    placeholder="Nhập địa chỉ của bạn">
+                                {{ showError($errors,'address') }}
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6">
                                 <label for="email">Địa chỉ email</label>
-                                <input type="email" id="email" class="form-control"
+                                <input name="email" type="email" id="email" class="form-control"
                                     placeholder="Ex: youremail@domain.com">
+                                {{ showError($errors,'email') }}
                             </div>
                             <div class="col-md-6">
                                 <label for="Phone">Số điện thoại</label>
-                                <input type="text" id="zippostalcode" class="form-control" placeholder="Ex: 0123456789">
+                                <input name="phone" type="text" id="zippostalcode" class="form-control"
+                                    placeholder="Ex: 0123456789">
+                                {{ showError($errors,'phone') }}
                             </div>
                         </div>
                         <div class="form-group">
@@ -56,30 +64,40 @@
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="col-md-5">
-                <div class="cart-detail">
-                    <h2>Tổng Giỏ hàng</h2>
-                    <ul>
-                        <li>
 
-                            <ul>
-                                <li><span>1 x Tên sản phẩm</span> <span>₫ 990.000</span></li>
-                                <li><span>1 x Tên sản phẩm</span> <span>₫ 780.000</span></li>
-                            </ul>
-                        </li>
-
-                        <li><span>Tổng tiền đơn hàng</span> <span>₫ 1.370.000</span></li>
-                    </ul>
                 </div>
+                <div class="col-md-5">
+                    <div class="cart-detail">
+                        <h2>Tổng Giỏ hàng</h2>
+                        <ul>
+                            <li>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <p><a href="order-complete.html" class="btn btn-primary">Thanh toán</a></p>
+                                <ul>
+                                    @foreach ($cart as $product)
+                                    <li><span>{{$product->qty}} x {{$product->name}}
+                                            @foreach ($product->options->attr as $key=>$value)
+                                            [{{$key}}:{{$value}}]
+                                            @endforeach
+
+                                        </span><span>{{number_format($product->price*$product->qty,0,'',',')}}
+                                            VND</span>
+                                    </li>
+                                    @endforeach
+
+                                </ul>
+                            </li>
+
+                            <li style="color:#FFC300;"><span>Tổng tiền đơn hàng</span>{{$total}} VND<span></span></li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p><button type="submit" class="btn btn-primary">Thanh toán</button></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
