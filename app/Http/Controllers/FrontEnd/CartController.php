@@ -21,10 +21,15 @@ class CartController extends Controller
     public function getAddCart(request $r)
     {
         $product = Product::find($r->id_product);
+        if ($r->has('quantity')) {
+            $qty = $r->quantity;
+        } else {
+            $qty = 1;
+        }
         Cart::add([
             'id' => $product->product_code,
             'name' => $product->name,
-            'qty' => $r->quantity,
+            'qty' => $qty,
             'price' => getPrice($product, $r->attr),
             'weight' => 0,
             'options' => ['img' => $product->img, 'attr' => $r->attr]

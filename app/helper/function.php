@@ -132,7 +132,7 @@ function getPrice($product, $array)
 }
 
 
-// function getprice($product,$array)
+// function getPrice($product,$array)
 // {
 //     foreach($product->variant as $row)
 //     {

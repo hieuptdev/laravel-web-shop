@@ -15,8 +15,9 @@
                                 <p class="tag"><span class="new">New</span></p>
                                 <div class="cart">
                                     <p>
-                                        <span class="addtocart"><a href="/"><i
+                                    <span class="addtocart"><a href="/cart/add?id_product={{$item->id}}"><i
                                                     class="icon-shopping-cart"></i></a></span>
+                                                    
                                         <span><a href="/product/detail/{{$item->id}}"><i class="icon-eye"></i></a></span>
                                     </p>
                                 </div>

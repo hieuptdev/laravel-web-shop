@@ -120,7 +120,7 @@
     }
 
     function update_qty(rowId, qty) {
-        $.get('/cart/update/'+rowId+'/'+qty,function () {
+        $.get('/cart/update/' + rowId + '/' + qty, function () {
             window.location.reload();
         });
     }
