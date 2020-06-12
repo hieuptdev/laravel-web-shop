@@ -4,20 +4,23 @@ namespace App\Http\Controllers\BackEnd;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Order,Customer};
+use App\Models\{Order, Customer};
+
 class OrderController extends Controller
 {
     function getOrder()
     {
-        $data['customer']=Customer::all();
-       
-        return view('backend.order.order',$data);
+        $data['customer'] = Customer::where('state', 0)->orderby('created_at', 'DESC')->paginate(10);
+
+        return view('backend.order.order', $data);
     }
 
 
-    function getDetailOrder()
+    function getDetailOrder($idCus)
     {
-        return view('backend.order.detailorder');
+        $data['customer'] = Customer::find($idCus);
+
+        return view('backend.order.detailorder', $data);
     }
 
 

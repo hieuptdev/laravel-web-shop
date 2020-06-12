@@ -11,7 +11,6 @@ class CartController extends Controller
 {
     function getCart()
     {
-
         $data['cart'] = Cart::content();
         $data['total'] = Cart::total(0, '', ',');
 
