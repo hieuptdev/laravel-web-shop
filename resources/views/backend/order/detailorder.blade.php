@@ -74,7 +74,7 @@
 											</td>
 											<td>{{$order->quantity}}</td>
 											<td>{{ number_format($order->price,0,'','.') }} VNĐ</td>
-											<td>1.000.000 VNĐ</td>
+											<td>{{ number_format($order->price,0,'','.') }} VNĐ</td>
 										</tr>
 										
 										@endforeach
@@ -88,7 +88,7 @@
 												<h4 align='right'>Tổng Tiền :</h4>
 											</th>
 											<th>
-												<h4 align='right' style="color: brown;">1.500.000 VNĐ</h4>
+												<h4 align='right' style="color: brown;">{{number_format($customer->total,0,'',',')}} VNĐ</h4>
 											</th>
 
 										</tr>
@@ -97,7 +97,7 @@
 									</tbody>
 								</table>
 								<div class="alert alert-primary" role="alert" align='right'>
-									<a name="" id="" class="btn btn-success" href="#" role="button">Đã xử lý</a>
+								<a name="" id="" class="btn btn-success" href="/admin/order/active/{{$customer->id}}" role="button">Đã xử lý</a>
 								</div>
 							</div>
 						</div>

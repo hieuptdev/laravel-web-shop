@@ -71,3 +71,6 @@
 			</div>
 		</div>
 @stop
+@section('about')
+	active
+@endsection

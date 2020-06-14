@@ -22,8 +22,16 @@
                 <div class="panel-body">
                     <div class="bootstrap-table">
                         <div class="table-responsive">
-
+                            @if (session('thongbao'))
+                            <div class="alert bg-{{ session('status') }}" role="alert">
+                                <svg class="glyph stroked checkmark">
+                                    <use xlink:href="#stroked-checkmark"></use>
+                                </svg>{{ session('thongbao') }}<a href="/admin/order" class="pull-right"><span
+                                        class="glyphicon glyphicon-remove"></span></a>
+                            </div>
+                            @endif
                             <a href="/admin/order/processed" class="btn btn-success">Đơn đã xử lý</a>
+                            
                             <table class="table table-bordered" style="margin-top:20px;">
                                 <thead>
                                     <tr class="bg-primary">

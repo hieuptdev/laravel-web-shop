@@ -25,9 +25,9 @@ class product extends Seeder
             ['id' => 9, 'product_code' => 'SP09', 'name' => 'Quần kaki Đỏ Nam', 'price' => 110000, 'featured' => 1, 'state' => 1, 'img' => 'quan-kaki-do-man-qk162-8273.jpg', 'category_id' => 3],
             ['id' => 10, 'product_code' => 'SP10', 'name' => 'Quần kaki Xám',  'price' => 120000, 'featured' => 1, 'state' => 1, 'img' => 'quan-kaki-xam-chuot-dam-qk171-9770.jpg', 'category_id' => 3],
 
-            ['id' => 11, 'product_code' => 'SP11', 'name' => 'Quần âu nam Prazenta I-QAM61', 'price' => 500000, 'featured' => 0, 'state' => 1, 'img' => 'no-img.jpg', 'category_id' => 3],
-            ['id' => 12, 'product_code' => 'SP12', 'name' => 'Áo nữ cổ V viền tay xinh xắn', 'price' => 500000, 'featured' => 1, 'state' => 1, 'img' => 'no-img.jpg', 'category_id' => 6],
-            ['id' => 13, 'product_code' => 'SP13', 'name' => 'Quần Nữ Suông Ống Rộng', 'price' => 500000, 'featured' => 1, 'state' => 1, 'img' => 'no-img.jpg', 'category_id' => 7],
+            ['id' => 11, 'product_code' => 'SP11', 'name' => 'Quần Short Nữ', 'price' => 500000, 'featured' => 0, 'state' => 1, 'img' => 'item-11.jpg', 'category_id' => 7],
+            ['id' => 12, 'product_code' => 'SP12', 'name' => 'Áo len nữ', 'price' => 500000, 'featured' => 1, 'state' => 1, 'img' => 'item-12.jpg', 'category_id' => 6],
+            ['id' => 13, 'product_code' => 'SP13', 'name' => 'Quần Nữ Suông Ống Rộng', 'price' => 500000, 'featured' => 1, 'state' => 1, 'img' => 'item-13.jpg', 'category_id' => 7],
         ]);
     }
 }

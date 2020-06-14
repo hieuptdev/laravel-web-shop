@@ -129,3 +129,6 @@
 @endsection
 
 @stop
+@section('cart')
+	active
+@endsection

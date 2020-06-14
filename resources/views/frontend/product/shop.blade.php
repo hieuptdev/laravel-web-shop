@@ -137,3 +137,6 @@
     </div>
 </div>
 @stop
+@section('product')
+	active
+@endsection

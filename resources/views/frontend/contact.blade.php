@@ -68,3 +68,6 @@
 </div>
 <div id="map" class="colorlib-map"></div>
 @stop
+@section('contact')
+	active
+@endsection

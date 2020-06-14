@@ -152,3 +152,6 @@
 
 
 @stop
+@section('cart')
+	active
+@endsection

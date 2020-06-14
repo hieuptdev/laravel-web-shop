@@ -23,9 +23,17 @@ class OrderController extends Controller
         return view('backend.order.detailorder', $data);
     }
 
+    function getActiveOrder($idCus)
+    {
+        $customer = Customer::find($idCus);
+        $customer->state = 1;
+        $customer->save();
+        return redirect('/admin/order')->with('thongbao', 'Đã chốt đơn hàng!')->with('status', 'success');
+    }
 
     function getProcessOrder()
     {
-        return view('backend.order.orderprocessed');
+        $data['customer'] = Customer::where('state', 1)->orderby('updated_at', 'DESC')->paginate(10);
+        return view('backend.order.orderprocessed',$data);
     }
 }

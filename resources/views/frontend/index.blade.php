@@ -201,3 +201,6 @@
 </div>
 
 @stop
+@section('index')
+	active
+@endsection

@@ -103,3 +103,6 @@
 </div>
 
 @stop
+@section('cart')
+	active
+@endsection

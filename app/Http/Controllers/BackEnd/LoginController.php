@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Customer;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -37,7 +39,17 @@ class LoginController extends Controller
 
     function getIndex()
     {
-        return view('backend.index');
+
+        $year_n = Carbon::now()->format('Y');
+        $month_n = Carbon::now()->format('m');
+        for ($i = 1; $i <= $month_n; $i++) {
+            $monthjs[$i] = 'tháng ' . $i;
+            $numberjs[$i] = Customer::where('state', 1)->whereMonth('updated_at', $i)->whereYear('updated_at', $year_n)->sum('total');
+        }
+        $data['monthjs'] = $monthjs;
+        $data['numberjs'] = $numberjs;
+        $data['order'] = Customer::where('state', 0)->count();
+        return view('backend.index', $data);
     }
 
     public function logOut()
